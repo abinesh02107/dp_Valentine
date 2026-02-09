@@ -1,0 +1,359 @@
+/* ===========================
+   HOME PAGE SPECIFIC STYLES
+   =========================== */
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 50%, rgba(255, 23, 68, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 70% 50%, rgba(156, 39, 176, 0.15) 0%, transparent 50%);
+    animation: pulseGlow 8s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.hero-content {
+    max-width: 1400px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 5%;
+}
+
+.hero-text h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    background: var(--gradient-romantic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    opacity: 0.85;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.floating-heart-large {
+    font-size: 15rem;
+    color: var(--primary-pink);
+    opacity: 0.8;
+    filter: drop-shadow(0 0 50px rgba(255, 64, 129, 0.5));
+}
+
+.floating-heart-large i {
+    display: block;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.6;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.scroll-indicator span {
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, var(--primary-pink));
+}
+
+.scroll-indicator p {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+/* Quick Links Section */
+.quick-links {
+    background: linear-gradient(180deg, var(--dark-bg) 0%, rgba(26, 26, 26, 0.5) 100%);
+    padding: 6rem 5%;
+}
+
+.links-grid {
+    margin-top: 3rem;
+}
+
+.link-card {
+    text-align: center;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-icon {
+    font-size: 4rem;
+    background: var(--gradient-romantic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+    transition: var(--transition-normal);
+}
+
+.link-card:hover .card-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.link-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.link-card p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.link-card .btn {
+    margin-top: auto;
+}
+
+/* Love Counter Section */
+.love-counter {
+    padding: 6rem 5%;
+    background: var(--dark-bg);
+}
+
+.counter-content {
+    padding: 4rem;
+    text-align: center;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 64, 129, 0.3);
+}
+
+.counter-content h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 3rem;
+}
+
+.counters-grid {
+    gap: 3rem;
+}
+
+.counter-item {
+    text-align: center;
+}
+
+.counter-number,
+.counter-infinity {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 700;
+    background: var(--gradient-romantic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: var(--font-heading);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.counter-item p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* Love Quote Section */
+.love-quote {
+    padding: 6rem 5%;
+    background: radial-gradient(circle at center, rgba(156, 39, 176, 0.1) 0%, transparent 70%);
+}
+
+.quote-card {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+}
+
+.quote-icon {
+    font-size: 4rem;
+    color: var(--primary-pink);
+    opacity: 0.3;
+    margin-bottom: 2rem;
+}
+
+.quote-text {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-family: var(--font-script);
+    line-height: 1.6;
+    color: var(--white);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.quote-author {
+    font-size: 1.2rem;
+    color: var(--soft-pink);
+    font-style: italic;
+}
+
+/* Footer */
+footer {
+    background: var(--dark-card);
+    border-top: 1px solid rgba(255, 64, 129, 0.2);
+    padding: 3rem 5%;
+}
+
+.footer-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-heart {
+    font-size: 3rem;
+    color: var(--primary-pink);
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 20px rgba(255, 64, 129, 0.5));
+}
+
+.footer-text {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+}
+
+.footer-date {
+    font-size: 1rem;
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+}
+
+.footer-social span {
+    font-size: 1.8rem;
+}
+
+/* ===========================
+   RESPONSIVE - HOME PAGE
+   =========================== */
+@media (max-width: 968px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .floating-heart-large {
+        font-size: 10rem;
+        margin-top: 2rem;
+    }
+
+    .counters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .counters-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .floating-heart-large {
+        font-size: 8rem;
+    }
+}

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Future ❤️ | Forever Yours</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .future-header {
+            text-align: center;
+            padding: 8rem 5% 3rem;
+            position: relative;
+        }
+
+        .future-header h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            background: var(--gradient-romantic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .dreams-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .dreams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .dream-card {
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: var(--blur-glass);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 64, 129, 0.2);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dream-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 64, 129, 0.15) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .dream-card:hover::before {
+            opacity: 1;
+        }
+
+        .dream-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            border-color: var(--primary-pink);
+            box-shadow: 0 20px 50px rgba(255, 64, 129, 0.4);
+        }
+
+        .dream-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: var(--transition-normal);
+        }
+
+        .dream-card:hover .dream-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .dream-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .dream-description {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .infinity-section {
+            text-align: center;
+            padding: 6rem 5%;
+            background: radial-gradient(circle at center, rgba(156, 39, 176, 0.15) 0%, transparent 70%);
+        }
+
+        .infinity-icon {
+            font-size: 8rem;
+            color: var(--primary-pink);
+            margin-bottom: 2rem;
+            animation: pulse 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 40px rgba(255, 64, 129, 0.6));
+        }
+
+        .promise-box {
+            max-width: 800px;
+            margin: 3rem auto;
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: var(--blur-glass);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--primary-pink);
+        }
+
+        .promise-text {
+            font-size: 1.3rem;
+            line-height: 2;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader" id="loader">
+        <div class="loader-heart"></div>
+    </div>
+
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Forever Yours ❤️</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="love-letters.html">Love Letters</a></li>
+                <li><a href="reasons.html">Why I Love You</a></li>
+                <li><a href="moments.html">Special Moments</a></li>
+                <li><a href="playlist.html">Our Playlist</a></li>
+                <li><a href="quiz.html">Love Quiz</a></li>
+                <li><a href="memory-lane.html">Memory Lane</a></li>
+                <li><a href="future.html" class="active">Our Future</a></li>
+                <li><a href="valentine.html">Be My Valentine?</a></li>
+                <li><a href="message.html">Valentine's Message</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="future-header">
+        <h1 class="fade-in-up">Our Future Together</h1>
+        <p class="script-text" style="font-size: 1.8rem; color: var(--soft-pink); margin-top: 1rem;">
+            Dreams we'll make come true 🌟
+        </p>
+        <p style="max-width: 700px; margin: 2rem auto; font-size: 1.1rem; opacity: 0.8;">
+            The past was beautiful, the present is wonderful, but the future with you is what I'm most excited about.
+        </p>
+    </section>
+
+    <div class="dreams-container">
+        <div class="dreams-grid">
+            <div class="dream-card reveal">
+                <div class="dream-icon">🏡</div>
+                <h3 class="dream-title">Our Home</h3>
+                <p class="dream-description">
+                    Building a cozy home together, filled with love, laughter, and countless memories.
+                    A place where we can be completely ourselves and create our own little paradise.
+                </p>
+            </div>
+
+            <div class="dream-card reveal">
+                <div class="dream-icon">✈️</div>
+                <h3 class="dream-title">Travel the World</h3>
+                <p class="dream-description">
+                    Exploring new places hand in hand, creating adventures in every corner of the world.
+                    From beaches to mountains, cities to countryside - experiencing it all together.
+                </p>
+            </div>
+
+            <div class="dream-card reveal">
+                <div class="dream-icon">🌅</div>
+                <h3 class="dream-title">Growing Old Together</h3>
+                <p class="dream-description">
+                    Watching sunrises and sunsets together, even when we're old and grey.
+                    Still holding hands, still making each other laugh, still deeply in love.
+                </p>
+            </div>
+
+            <div class="dream-card reveal">
+                <div class="dream-icon">🎯</div>
+                <h3 class="dream-title">Achieving Dreams</h3>
+                <p class="dream-description">
+                    Supporting each other's goals and celebrating every achievement together.
+                    Your dreams are my dreams, and I'll always be your biggest cheerleader.
+                </p>
+            </div>
+
+            <div class="dream-card reveal">
+                <div class="dream-icon">👨‍👩‍👧‍👦</div>
+                <h3 class="dream-title">Building a Family</h3>
+                <p class="dream-description">
+                    Creating beautiful traditions, sharing our love with those around us,
+                    and building a life full of warmth, kindness, and endless joy.
+                </p>
+            </div>
+
+            <div class="dream-card reveal">
+                <div class="dream-icon">💪</div>
+                <h3 class="dream-title">Overcoming Challenges</h3>
+                <p class="dream-description">
+                    Facing life's ups and downs together, knowing that as long as we have each other,
+                    we can handle anything. Growing stronger with every challenge we overcome.
+                </p>
+            </div>
+
+            <div class="dream-card reveal">
+                <div class="dream-icon">🎉</div>
+                <h3 class="dream-title">Celebrating Life</h3>
+                <p class="dream-description">
+                    Making every ordinary day special, celebrating little victories,
+                    and never taking a single moment together for granted.
+                </p>
+            </div>
+
+            <div class="dream-card reveal">
+                <div class="dream-icon">📚</div>
+                <h3 class="dream-title">Never Stop Learning</h3>
+                <p class="dream-description">
+                    Growing together, learning from each other, trying new things,
+                    and keeping our love fresh and exciting with every passing year.
+                </p>
+            </div>
+
+            <div class="dream-card reveal">
+                <div class="dream-icon">🌈</div>
+                <h3 class="dream-title">Creating Magic</h3>
+                <p class="dream-description">
+                    Turning everyday moments into magical memories, finding beauty in simplicity,
+                    and making sure that our life together is everything we've ever dreamed of.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section class="infinity-section">
+        <div class="infinity-icon">∞</div>
+        <h2 class="text-gradient" style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 2rem;">
+            Forever Starts Now
+        </h2>
+
+        <div class="promise-box reveal">
+            <p class="promise-text">
+                "I promise to love you in sunshine and in rain, in good times and in bad.
+                I promise to be your partner, your best friend, and your safe haven.
+                I promise to choose you every single day, to support your dreams,
+                and to build a future with you that's even more beautiful than we can imagine.
+                This is my promise to you - today, tomorrow, and for all the days of my life."
+            </p>
+            <p class="script-text" style="font-size: 2rem; margin-top: 2rem; color: var(--primary-pink);">
+                Forever Yours ❤️
+            </p>
+        </div>
+
+        <div style="margin-top: 3rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+            <a href="message.html" class="btn btn-primary">
+                <i class="fas fa-envelope-open-text"></i> Read My Valentine's Message
+            </a>
+            <a href="index.html" class="btn btn-outline">
+                <i class="fas fa-heart"></i> Back to Home
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-heart heartbeat">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <p class="footer-text">Made with endless love for the most amazing person in the world</p>
+                <p class="footer-date">Valentine's Day 2026</p>
+                <div class="footer-social">
+                    <span class="script-text">Forever & Always ❤️</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

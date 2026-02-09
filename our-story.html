@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Our beautiful love story - how we met and fell in love">
+    <title>Our Story ❤️ | Forever Yours</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Our Story Specific Styles */
+        .story-header {
+            text-align: center;
+            padding: 8rem 5% 4rem;
+            background: linear-gradient(180deg, rgba(156, 39, 176, 0.1) 0%, transparent 100%);
+        }
+
+        .story-header h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            background: var(--gradient-romantic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .story-intro {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg,
+                    transparent 0%,
+                    var(--primary-pink) 10%,
+                    var(--primary-pink) 90%,
+                    transparent 100%);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 4rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .timeline-item.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            text-align: right;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: 0 3rem;
+        }
+
+        .timeline-date {
+            font-family: var(--font-script);
+            font-size: 1.8rem;
+            color: var(--primary-pink);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .timeline-card {
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: var(--blur-glass);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 64, 129, 0.2);
+            position: relative;
+            transition: var(--transition-normal);
+        }
+
+        .timeline-card:hover {
+            transform: scale(1.02);
+            border-color: var(--primary-pink);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timeline-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .timeline-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .timeline-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-romantic);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            box-shadow: 0 0 30px rgba(255, 64, 129, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 30px rgba(255, 64, 129, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 50px rgba(255, 64, 129, 0.8);
+            }
+        }
+
+        .love-meter {
+            max-width: 600px;
+            margin: 4rem auto;
+            text-align: center;
+            padding: 3rem;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: var(--blur-glass);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 64, 129, 0.2);
+        }
+
+        .love-meter h3 {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .meter-bar {
+            width: 100%;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .meter-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--gradient-romantic);
+            border-radius: 20px;
+            transition: width 2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .meter-fill.active {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(odd) {
+                flex-direction: column;
+            }
+
+            .timeline-content {
+                padding: 0 0 0 80px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content {
+                text-align: left;
+            }
+
+            .timeline-icon {
+                left: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-heart"></div>
+    </div>
+
+    <!-- Floating Hearts Background -->
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Forever Yours ❤️</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="our-story.html" class="active">Our Story</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="love-letters.html">Love Letters</a></li>
+                <li><a href="reasons.html">Why I Love You</a></li>
+                <li><a href="moments.html">Special Moments</a></li>
+                <li><a href="playlist.html">Our Playlist</a></li>
+                <li><a href="quiz.html">Love Quiz</a></li>
+                <li><a href="memory-lane.html">Memory Lane</a></li>
+                <li><a href="future.html">Our Future</a></li>
+                <li><a href="valentine.html">Be My Valentine?</a></li>
+                <li><a href="message.html">Valentine's Message</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Story Header -->
+    <section class="story-header">
+        <h1 class="fade-in-up">Our Love Story</h1>
+        <p class="story-intro script-text fade-in">
+            "Every love story is beautiful, but ours is my favorite 💙."
+        </p>
+        <p class="story-intro fade-in">
+            From the moment, I saw you sat on last bench to now, my life has changed a lot.
+            Here's the story of how two souls found each other 🫂 and created something magical 🪄.
+        </p>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline">
+        <div class="timeline-item reveal">
+            <div class="timeline-icon">
+                <i class="fas fa-eye"></i>
+            </div>
+            <div class="timeline-content">
+                <span class="timeline-date">The First Glance</span>
+                <div class="timeline-card">
+                    <h3>When Our Eyes First Met</h3>
+                    <p>
+                        I remember the exact moment I first saw you. 
+                        Time and People Surround us are stopped and There was something about
+                        you that caught my attention - your smile, your eyes, the way you lit
+                        up the room. Little did I know that this moment would change my life forever.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item reveal">
+            <div class="timeline-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="timeline-content">
+                <span class="timeline-date">The First Conversation</span>
+                <div class="timeline-card">
+                    <h3>Words That Sparked Connection</h3>
+                    <p>
+                        Our first conversation felt so natural, like we'd known each other for years.
+                        We talked for hours about everything and nothing. Your laugh became my favorite
+                        sound, and your words made me want to know more about you. I remember thinking,
+                        "This person is special."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item reveal">
+            <div class="timeline-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <div class="timeline-content">
+                <span class="timeline-date">Falling In Love</span>
+                <div class="timeline-card">
+                    <h3>When I Knew It Was Love</h3>
+                    <p>
+                        It wasn't just one moment, but a series of beautiful moments that made me
+                        realize I was falling for you. The way you cared about the little things,
+                        your kindness, your dreams, your quirks - everything about you made my
+                        heart skip a beat. I found myself thinking about you every moment of the day.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item reveal">
+            <div class="timeline-icon">
+                <i class="fas fa-ring"></i>
+            </div>
+            <div class="timeline-content">
+                <span class="timeline-date">Our Journey Begins</span>
+                <div class="timeline-card">
+                    <h3>Together Forever</h3>
+                    <p>
+                        From casual conversations to deep connections, from friendship to love -
+                        our journey has been nothing short of magical. Every day with you is an
+                        adventure, and I can't wait to create more beautiful memories together.
+                        This is just the beginning of our forever story.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="timeline-item reveal">
+            <div class="timeline-icon">
+                <i class="fas fa-infinity"></i>
+            </div>
+            <div class="timeline-content">
+                <span class="timeline-date">Today & Forever</span>
+                <div class="timeline-card">
+                    <h3>Our Love Grows Stronger</h3>
+                    <p>
+                        Every day I fall more in love with you. You've shown me what true love means -
+                        patience, understanding, support, and unconditional care. Thank you for being
+                        my partner, my best friend, and my everything. I promise to cherish and love
+                        you for all the days of my life.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Meter -->
+    <section class="container">
+        <div class="love-meter reveal">
+            <h3 class="text-gradient">Love Level 💕</h3>
+            <div class="meter-bar">
+                <div class="meter-fill" id="loveMeter">
+                    <span>∞% Forever</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <section class="container" style="padding: 4rem 5%; text-align: center;">
+        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+            <a href="gallery.html" class="btn btn-primary">
+                <i class="fas fa-images"></i> View Our Gallery
+            </a>
+            <a href="reasons.html" class="btn btn-outline">
+                <i class="fas fa-heart"></i> Why I Love You
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-heart heartbeat">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <p class="footer-text">Made with endless love for the most amazing person in the world</p>
+                <p class="footer-date">Valentine's Day 2026</p>
+                <div class="footer-social">
+                    <span class="script-text">Forever & Always ❤️</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Animate love meter when visible
+        const loveMeter = document.getElementById('loveMeter');
+        const meterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    loveMeter.classList.add('active');
+                    meterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (loveMeter) {
+            meterObserver.observe(loveMeter.parentElement);
+        }
+
+        // Timeline items reveal
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        timelineItems.forEach(item => timelineObserver.observe(item));
+    </script>
+</body>
+
+</html>

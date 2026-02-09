@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Quiz ❤️ | Forever Yours</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .quiz-header {
+            text-align: center;
+            padding: 8rem 5% 3rem;
+        }
+
+        .quiz-header h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            background: var(--gradient-romantic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .quiz-card {
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: var(--blur-glass);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 64, 129, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .question {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .question-number {
+            display: inline-block;
+            background: var(--gradient-romantic);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            font-size: 1.1rem;
+        }
+
+        .option:hover {
+            background: rgba(255, 64, 129, 0.1);
+            border-color: var(--primary-pink);
+            transform: translateX(10px);
+        }
+
+        .option.selected {
+            background: rgba(255, 64, 129, 0.2);
+            border-color: var(--primary-pink);
+        }
+
+        .quiz-result {
+            display: none;
+            text-align: center;
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: var(--blur-glass);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            border: 2px solid var(--primary-pink);
+        }
+
+        .quiz-result.show {
+            display: block;
+        }
+
+        .result-icon {
+            font-size: 6rem;
+            margin-bottom: 2rem;
+        }
+
+        .result-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            background: var(--gradient-romantic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .result-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .quiz-navigation {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader" id="loader">
+        <div class="loader-heart"></div>
+    </div>
+
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Forever Yours ❤️</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="love-letters.html">Love Letters</a></li>
+                <li><a href="reasons.html">Why I Love You</a></li>
+                <li><a href="moments.html">Special Moments</a></li>
+                <li><a href="playlist.html">Our Playlist</a></li>
+                <li><a href="quiz.html" class="active">Love Quiz</a></li>
+                <li><a href="memory-lane.html">Memory Lane</a></li>
+                <li><a href="future.html">Our Future</a></li>
+                <li><a href="valentine.html">Be My Valentine?</a></li>
+                <li><a href="message.html">Valentine's Message</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="quiz-header">
+        <h1 class="fade-in-up">How Well Do You Know Me?</h1>
+        <p class="script-text" style="font-size: 1.8rem; color: var(--soft-pink); margin-top: 1rem;">
+            A fun quiz about us 💕
+        </p>
+        <p style="max-width: 700px; margin: 2rem auto; font-size: 1.1rem; opacity: 0.8;">
+            Test your knowledge about our relationship and see how well you really know me!
+        </p>
+    </section>
+
+    <div class="quiz-container">
+        <div id="quizQuestions">
+            <!-- Question 1 -->
+            <div class="quiz-card reveal" data-question="1">
+                <span class="question-number">Question 1 of 5</span>
+                <h3 class="question">What was the first thing I noticed about you?</h3>
+                <div class="options">
+                    <div class="option" data-answer="correct">Your beautiful smile</div>
+                    <div class="option" data-answer="wrong">Your eyes</div>
+                    <div class="option" data-answer="wrong">Your laugh</div>
+                    <div class="option" data-answer="wrong">Your hair</div>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="quiz-card reveal" data-question="2" style="display: none;">
+                <span class="question-number">Question 2 of 5</span>
+                <h3 class="question">What's my favorite thing to do with you?</h3>
+                <div class="options">
+                    <div class="option" data-answer="wrong">Going to restaurants</div>
+                    <div class="option" data-answer="correct">Just spending quiet time together</div>
+                    <div class="option" data-answer="wrong">Watching movies</div>
+                    <div class="option" data-answer="wrong">Shopping</div>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="quiz-card reveal" data-question="3" style="display: none;">
+                <span class="question-number">Question 3 of 5</span>
+                <h3 class="question">What makes me happiest?</h3>
+                <div class="options">
+                    <div class="option" data-answer="wrong">Getting gifts</div>
+                    <div class="option" data-answer="correct">Seeing you happy</div>
+                    <div class="option" data-answer="wrong">Going on adventures</div>
+                    <div class="option" data-answer="wrong">Eating good food</div>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="quiz-card reveal" data-question="4" style="display: none;">
+                <span class="question-number">Question 4 of 5</span>
+                <h3 class="question">What's my favorite memory of us?</h3>
+                <div class="options">
+                    <div class="option" data-answer="wrong">Our first date</div>
+                    <div class="option" data-answer="wrong">Our first trip</div>
+                    <div class="option" data-answer="correct">Every single moment with you</div>
+                    <div class="option" data-answer="wrong">Our first kiss</div>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="quiz-card reveal" data-question="5" style="display: none;">
+                <span class="question-number">Question 5 of 5</span>
+                <h3 class="question">How much do I love you?</h3>
+                <div class="options">
+                    <div class="option" data-answer="wrong">A lot</div>
+                    <div class="option" data-answer="wrong">More than anything</div>
+                    <div class="option" data-answer="wrong">To the moon and back</div>
+                    <div class="option" data-answer="correct">Beyond words and infinity</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Result -->
+        <div class="quiz-result" id="quizResult">
+            <div class="result-icon">🎉💕</div>
+            <h2 class="result-title">Perfect Score!</h2>
+            <p class="result-text">
+                You got <span id="scoreDisplay">5/5</span> correct! You know me so well, and that makes my heart so
+                happy.
+                This is just another proof of how connected we are. I love you more than you'll ever know!
+            </p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="message.html" class="btn btn-primary">
+                    <i class="fas fa-envelope-open-text"></i> Read My Message
+                </a>
+                <button onclick="location.reload()" class="btn btn-outline">
+                    <i class="fas fa-redo"></i> Retake Quiz
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-heart heartbeat">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <p class="footer-text">Made with endless love for the most amazing person in the world</p>
+                <p class="footer-date">Valentine's Day 2026</p>
+                <div class="footer-social">
+                    <span class="script-text">Forever & Always ❤️</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        let currentQuestion = 1;
+        let score = 0;
+        const totalQuestions = 5;
+
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function () {
+                const card = this.closest('.quiz-card');
+                const options = card.querySelectorAll('.option');
+
+                // Remove selected class from all options
+                options.forEach(opt => opt.classList.remove('selected'));
+
+                // Add selected class to clicked option
+                this.classList.add('selected');
+
+                // Check if answer is correct
+                if (this.dataset.answer === 'correct') {
+                    score++;
+                }
+
+                // Move to next question after delay
+                setTimeout(() => {
+                    if (currentQuestion < totalQuestions) {
+                        card.style.display = 'none';
+                        currentQuestion++;
+                        const nextCard = document.querySelector(`[data-question="${currentQuestion}"]`);
+                        if (nextCard) {
+                            nextCard.style.display = 'block';
+                        }
+                    } else {
+                        // Show results
+                        document.getElementById('quizQuestions').style.display = 'none';
+                        document.getElementById('scoreDisplay').textContent = score + '/' + totalQuestions;
+                        document.getElementById('quizResult').classList.add('show');
+                    }
+                }, 800);
+            });
+        });
+    </script>
+</body>
+
+</html>

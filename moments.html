@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Moments ❤️ | Forever Yours</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .moments-header {
+            text-align: center;
+            padding: 8rem 5% 3rem;
+        }
+
+        .moments-header h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            background: var(--gradient-romantic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .moments-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .moment-card {
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: var(--blur-glass);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 64, 129, 0.2);
+            transition: var(--transition-normal);
+        }
+
+        .moment-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-pink);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .moment-icon-wrapper {
+            background: var(--gradient-romantic);
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .moment-icon {
+            font-size: 4rem;
+            color: white;
+        }
+
+        .moment-content {
+            padding: 2rem;
+        }
+
+        .moment-date {
+            font-family: var(--font-script);
+            font-size: 1.3rem;
+            color: var(--primary-pink);
+            margin-bottom: 0.5rem;
+        }
+
+        .moment-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .moment-description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader" id="loader">
+        <div class="loader-heart"></div>
+    </div>
+
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Forever Yours ❤️</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="love-letters.html">Love Letters</a></li>
+                <li><a href="reasons.html">Why I Love You</a></li>
+                <li><a href="moments.html" class="active">Special Moments</a></li>
+                <li><a href="playlist.html">Our Playlist</a></li>
+                <li><a href="quiz.html">Love Quiz</a></li>
+                <li><a href="memory-lane.html">Memory Lane</a></li>
+                <li><a href="future.html">Our Future</a></li>
+                <li><a href="valentine.html">Be My Valentine?</a></li>
+                <li><a href="message.html">Valentine's Message</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="moments-header">
+        <h1 class="fade-in-up">Special Moments</h1>
+        <p class="script-text" style="font-size: 1.8rem; color: var(--soft-pink); margin-top: 1rem;">
+            Dates and memories we'll never forget 📅
+        </p>
+        <p style="max-width: 700px; margin: 2rem auto; font-size: 1.1rem; opacity: 0.8;">
+            These are the moments that defined our journey together - each one precious and unforgettable.
+        </p>
+    </section>
+
+    <div class="moments-grid">
+        <div class="moment-card reveal">
+            <div class="moment-icon-wrapper">
+                <div class="moment-icon">👀</div>
+            </div>
+            <div class="moment-content">
+                <p class="moment-date">The Beginning</p>
+                <h3 class="moment-title">The Day We Met</h3>
+                <p class="moment-description">
+                    The universe conspired to bring us together on this magical day. I'll never forget
+                    the first time I saw you and felt that instant connection.
+                </p>
+            </div>
+        </div>
+
+        <div class="moment-card reveal">
+            <div class="moment-icon-wrapper">
+                <div class="moment-icon">💬</div>
+            </div>
+            <div class="moment-content">
+                <p class="moment-date">First Connection</p>
+                <h3 class="moment-title">Our First Conversation</h3>
+                <p class="moment-description">
+                    We talked for hours and it felt like minutes. That's when I knew you were someone
+                    special - someone I wanted to keep in my life forever.
+                </p>
+            </div>
+        </div>
+
+        <div class="moment-card reveal">
+            <div class="moment-icon-wrapper">
+                <div class="moment-icon">☕</div>
+            </div>
+            <div class="moment-content">
+                <p class="moment-date">First Date</p>
+                <h3 class="moment-title">Coffee & Conversations</h3>
+                <p class="moment-description">
+                    Our first official date. I was nervous, excited, and completely mesmerized by you.
+                    That day will forever be etched in my heart.
+                </p>
+            </div>
+        </div>
+
+        <div class="moment-card reveal">
+            <div class="moment-icon-wrapper">
+                <div class="moment-icon">❤️</div>
+            </div>
+            <div class="moment-content">
+                <p class="moment-date">The Confession</p>
+                <h3 class="moment-title">When I Told You "I Love You"</h3>
+                <p class="moment-description">
+                    The day I finally gathered the courage to tell you how I felt. Your response made
+                    me the happiest person alive.
+                </p>
+            </div>
+        </div>
+
+        <div class="moment-card reveal">
+            <div class="moment-icon-wrapper">
+                <div class="moment-icon">🎂</div>
+            </div>
+            <div class="moment-content">
+                <p class="moment-date">Celebration</p>
+                <h3 class="moment-title">Your Birthday Surprise</h3>
+                <p class="moment-description">
+                    Planning and executing the perfect surprise for you was such a joy. Seeing your
+                    face light up made all the effort worthwhile.
+                </p>
+            </div>
+        </div>
+
+        <div class="moment-card reveal">
+            <div class="moment-icon-wrapper">
+                <div class="moment-icon">🌟</div>
+            </div>
+            <div class="moment-content">
+                <p class="moment-date">Adventure</p>
+                <h3 class="moment-title">Our First Trip Together</h3>
+                <p class="moment-description">
+                    Exploring new places with you, creating memories, and realizing that home isn't a
+                    place - it's wherever we're together.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; padding: 4rem 5%;">
+        <p class="script-text" style="font-size: 2rem; margin-bottom: 2rem; color: var(--soft-pink);">
+            "Every moment with you becomes a cherished memory" 💕
+        </p>
+        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+            <a href="memory-lane.html" class="btn btn-primary">
+                <i class="fas fa-road"></i> Walk Memory Lane
+            </a>
+            <a href="future.html" class="btn btn-outline">
+                <i class="fas fa-forward"></i> Our Future
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-heart heartbeat">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <p class="footer-text">Made with endless love for the most amazing person in the world</p>
+                <p class="footer-date">Valentine's Day 2026</p>
+                <div class="footer-social">
+                    <span class="script-text">Forever & Always ❤️</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

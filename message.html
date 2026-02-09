@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A special Valentine's message for you">
+    <title>Valentine's Message ❤️ | Forever Yours</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .message-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+        }
+
+        .message-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .envelope {
+            width: 300px;
+            height: 200px;
+            margin: 0 auto 3rem;
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+
+        .envelope:hover {
+            transform: scale(1.05);
+        }
+
+        .envelope-flap {
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-top: 100px solid var(--rose-gold);
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: top;
+            transition: transform 0.6s ease;
+            z-index: 3;
+        }
+
+        .envelope.open .envelope-flap {
+            transform: rotateX(180deg);
+        }
+
+        .envelope-body {
+            width: 300px;
+            height: 150px;
+            background: var(--champagne);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .letter {
+            width: 280px;
+            background: white;
+            padding: 2rem;
+            position: absolute;
+            top: 20px;
+            left: 10px;
+            border-radius: 5px;
+            color: #333;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
+            transition: transform 0.6s ease;
+            z-index: 2;
+            max-height: 120px;
+            overflow: hidden;
+        }
+
+        .envelope.open .letter {
+            transform: translateY(-150px);
+        }
+
+        .letter-icon {
+            font-size: 2rem;
+            color: var(--primary-rose);
+            margin-bottom: 0.5rem;
+        }
+
+        .letter-preview {
+            font-family: var(--font-script);
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .message-content {
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: var(--blur-glass);
+            padding: 3rem;
+            border-radius: 30px;
+            border: 2px solid rgba(255, 64, 129, 0.3);
+            margin-top: 3rem;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s ease;
+        }
+
+        .message-content.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .message-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            background: var(--gradient-romantic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+        }
+
+        .message-text {
+            font-size: 1.3rem;
+            line-height: 2;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .signature {
+            font-family: var(--font-script);
+            font-size: 2.5rem;
+            color: var(--primary-pink);
+            margin-top: 3rem;
+        }
+
+        .hearts-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .falling-heart {
+            position: absolute;
+            font-size: 2rem;
+            color: var(--primary-pink);
+            animation: heartFall 4s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes heartFall {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(0deg);
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(calc(100vh + 100px)) rotate(360deg);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader" id="loader">
+        <div class="loader-heart"></div>
+    </div>
+
+    <div class="hearts-bg" id="heartsBg"></div>
+    <div class="hearts-rain" id="heartsRain"></div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Forever Yours ❤️</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="love-letters.html">Love Letters</a></li>
+                <li><a href="reasons.html">Why I Love You</a></li>
+                <li><a href="moments.html">Special Moments</a></li>
+                <li><a href="playlist.html">Our Playlist</a></li>
+                <li><a href="quiz.html">Love Quiz</a></li>
+                <li><a href="memory-lane.html">Memory Lane</a></li>
+                <li><a href="future.html">Our Future</a></li>
+                <li><a href="valentine.html">Be My Valentine?</a></li>
+                <li><a href="message.html" class="active">Valentine's Message</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="message-page">
+        <div class="message-container">
+            <div class="envelope" id="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body"></div>
+                <div class="letter">
+                    <div class="letter-icon">💌</div>
+                    <p class="letter-preview">Click to open...</p>
+                </div>
+            </div>
+
+            <p
+                style="font-family: var(--font-script); font-size: 1.5rem; color: var(--soft-pink); margin-bottom: 2rem;">
+                Click the envelope to read your special message
+            </p>
+
+            <div class="message-content" id="messageContent">
+                <h1>To My Dearest Love,</h1>
+
+                <div class="message-text">
+                    <p style="margin-bottom: 2rem;">
+                        On this Valentine's Day, I want you to know that you are the most precious gift
+                        life has ever given me. Every moment with you feels like a dream come true, and
+                        I fall more in love with you with each passing day.
+                    </p>
+
+                    <p style="margin-bottom: 2rem;">
+                        You've shown me what true love really means. It's in the way you smile at me
+                        when I'm being silly, how you hold my hand when I'm nervous, and the comfort
+                        I feel just being near you. You make my heart feel full in ways I never knew
+                        were possible.
+                    </p>
+
+                    <p style="margin-bottom: 2rem;">
+                        Thank you for being my partner, my best friend, my confidant, and my greatest
+                        supporter. Thank you for choosing me every day and for making me want to be the
+                        best version of myself.
+                    </p>
+
+                    <p style="margin-bottom: 2rem;">
+                        This website is just a small token of my infinite love for you. I created it
+                        because words alone cannot express how deeply I care for you. You deserve all
+                        the stars in the sky, and I promise to spend every day trying to give them to you.
+                    </p>
+
+                    <p style="margin-bottom: 2rem;">
+                        Happy Valentine's Day, my love. Here's to us, to our beautiful journey together,
+                        and to all the amazing memories we'll create in the future.
+                    </p>
+
+                    <p style="font-size: 1.5rem; font-weight: 600; color: var(--primary-pink);">
+                        I love you more than words can say, today and always. ❤️
+                    </p>
+                </div>
+
+                <div class="signature">
+                    Forever Yours,<br>
+                    [Your Name]
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="future.html" class="btn btn-primary">
+                        <i class="fas fa-infinity"></i> Our Future Together
+                    </a>
+                    <a href="index.html" class="btn btn-outline">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-heart heartbeat">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <p class="footer-text">Made with endless love for the most amazing person in the world</p>
+                <p class="footer-date">Valentine's Day 2026</p>
+                <div class="footer-social">
+                    <span class="script-text">Forever & Always ❤️</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const envelope = document.getElementById('envelope');
+        const messageContent = document.getElementById('messageContent');
+        const heartsRain = document.getElementById('heartsRain');
+
+        envelope.addEventListener('click', function () {
+            envelope.classList.add('open');
+
+            setTimeout(() => {
+                messageContent.classList.add('visible');
+
+                // Create falling hearts
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.classList.add('falling-heart');
+                        heart.textContent = '❤️';
+                        heart.style.left = Math.random() * 100 + '%';
+                        heart.style.animationDelay = Math.random() * 2 + 's';
+                        heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+                        heartsRain.appendChild(heart);
+
+                        setTimeout(() => heart.remove(), 4000);
+                    }, i * 200);
+                }
+            }, 600);
+        });
+    </script>
+</body>
+
+</html>

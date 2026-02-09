@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letters❤️ | Forever Yours</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .letters-header {
+            text-align: center;
+            padding: 8rem 5% 3rem;
+        }
+
+        .letters-header h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            background: var(--gradient-romantic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .letters-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .letter-item {
+            background: linear-gradient(135deg, rgba(255, 248, 240, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%);
+            padding: 3rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            color: #333;
+            border-left: 5px solid var(--primary-rose);
+            position: relative;
+        }
+
+        .letter-item::before {
+            content: '💌';
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 3rem;
+            opacity: 0.2;
+        }
+
+        .letter-date {
+            font-family: var(--font-script);
+            font-size: 1.3rem;
+            color: var(--primary-rose);
+            margin-bottom: 1rem;
+        }
+
+        .letter-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            font-family: 'Georgia', serif;
+            margin-bottom: 1.5rem;
+        }
+
+        .letter-signature {
+            font-family: var(--font-script);
+            font-size: 1.8rem;
+            color: var(--primary-rose);
+            text-align: right;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader" id="loader">
+        <div class="loader-heart"></div>
+    </div>
+
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Forever Yours ❤️</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                 <li><a href="index.html">Home</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="love-letters.html" class="active">Love Letters</a></li>
+                <li><a href="reasons.html">Why I Love You</a></li>
+                <li><a href="moments.html">Special Moments</a></li>
+                <li><a href="playlist.html">Our Playlist</a></li>
+                <li><a href="quiz.html">Love Quiz</a></li>
+                <li><a href="memory-lane.html">Memory Lane</a></li>
+                <li><a href="future.html">Our Future</a></li>
+                <li><a href="valentine.html">Be My Valentine?</a></li>
+                <li><a href="message.html">Valentine's Message</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="letters-header">
+        <h1 class="fade-in-up">Love Letters</h1>
+        <p class="script-text" style="font-size: 1.8rem; color: var(--soft-pink); margin-top: 1rem;">
+            Words written from the heart 💕
+        </p>
+    </section>
+
+    <div class="letters-container">
+        <div class="letter-item reveal">
+            <p class="letter-date">Letter 1 - To My Forever</p>
+            <div class="letter-content">
+                <p>My Dearest Love,</p>
+                <p>I find myself thinking about you at the most random moments. When I see a beautiful sunset, when I
+                    hear our song on the radio, when I'm sipping my morning coffee. You've become such an integral part
+                    of my life that everything reminds me of you.</p>
+                <p>Thank you for being patient with me, for understanding my flaws, and for loving me despite them. You
+                    make me want to be better every single day. </p>
+                <p>I love you more than yesterday, but less than tomorrow.</p>
+            </div>
+            <p class="letter-signature">Forever Yours</p>
+        </div>
+
+        <div class="letter-item reveal">
+            <p class="letter-date">Letter 2 - Grateful Heart</p>
+            <div class="letter-content">
+                <p>My Beautiful Love,</p>
+                <p>I wanted to take a moment to tell you how grateful I am for you. You came into my life like a breath
+                    of fresh air, bringing light into places I didn't even know were dark.</p>
+                <p>Your kindness, your warmth, your beautiful soul - they inspire me every day. You've taught me what it
+                    means to truly love someone, to put their happiness above your own, to find joy in the smallest
+                    moments together.</p>
+                <p>Thank you for choosing me, every single day.</p>
+            </div>
+            <p class="letter-signature">With All My Love</p>
+        </div>
+
+        <div class="letter-item reveal">
+            <p class="letter-date">Letter 3 - Promise</p>
+            <div class="letter-content">
+                <p>To My One and Only,</p>
+                <p>I promise to always be there for you, in good times and bad. I promise to make you laugh when you're
+                    sad, to hold you when you need comfort, and to give you space when you need it.</p>
+                <p>I promise to support your dreams, to celebrate your victories, and to help you through your
+                    challenges. I promise to love you unconditionally, faithfully, and eternally.</p>
+                <p>You are my today and all of my tomorrows.</p>
+            </div>
+            <p class="letter-signature">Always & Forever</p>
+        </div>
+    </div>
+
+    <div style="text-align: center; padding: 4rem 5%;">
+        <a href="reasons.html" class="btn btn-primary">
+            <i class="fas fa-heart"></i> Why I Love You
+        </a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-heart heartbeat">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <p class="footer-text">Made with endless love for the most amazing person in the world</p>
+                <p class="footer-date">Valentine's Day 2026</p>
+                <div class="footer-social">
+                    <span class="script-text">Forever & Always ❤️</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

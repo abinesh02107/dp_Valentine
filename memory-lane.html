@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Lane ❤️ | Forever Yours</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .memory-lane-header {
+            text-align: center;
+            padding: 8rem 5% 3rem;
+        }
+
+        .memory-lane-header h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            background: var(--gradient-romantic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .road-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .memory-road {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .road-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg,
+                    var(--primary-pink) 0%,
+                    var(--soft-purple) 50%,
+                    var(--primary-pink) 100%);
+            transform: translateX(-50%);
+        }
+
+        .memory-marker {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .memory-marker:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .memory-dot {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-romantic);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            box-shadow: 0 0 20px rgba(255, 64, 129, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .memory-content {
+            width: 45%;
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: var(--blur-glass);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 64, 129, 0.2);
+            transition: var(--transition-normal);
+        }
+
+        .memory-marker:nth-child(even) .memory-content {
+            margin-left: auto;
+        }
+
+        .memory-content:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-pink);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .memory-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-pink);
+            font-family: var(--font-script);
+        }
+
+        .memory-description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        @media (max-width: 768px) {
+            .road-line {
+                left: 20px;
+            }
+
+            .memory-dot {
+                left: 20px;
+            }
+
+            .memory-marker,
+            .memory-marker:nth-child(even) {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 60px;
+            }
+
+            .memory-content {
+                width: 100%;
+                margin-left: 0 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader" id="loader">
+        <div class="loader-heart"></div>
+    </div>
+
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Forever Yours ❤️</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+               <li><a href="index.html">Home</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="love-letters.html">Love Letters</a></li>
+                <li><a href="reasons.html">Why I Love You</a></li>
+                <li><a href="moments.html">Special Moments</a></li>
+                <li><a href="playlist.html">Our Playlist</a></li>
+                <li><a href="quiz.html">Love Quiz</a></li>
+                <li><a href="memory-lane.html" class="active">Memory Lane</a></li>
+                <li><a href="future.html">Our Future</a></li>
+                <li><a href="valentine.html">Be My Valentine?</a></li>
+                <li><a href="message.html">Valentine's Message</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="memory-lane-header">
+        <h1 class="fade-in-up">Memory Lane</h1>
+        <p class="script-text" style="font-size: 1.8rem; color: var(--soft-pink); margin-top: 1rem;">
+            Walking down the path of our beautiful journey 🛤️
+        </p>
+        <p style="max-width: 700px; margin: 2rem auto; font-size: 1.1rem; opacity: 0.8;">
+            Let's take a stroll down memory lane and relive some of the most beautiful moments we've shared together.
+        </p>
+    </section>
+
+    <div class="road-container">
+        <div class="memory-road">
+            <div class="road-line"></div>
+
+            <div class="memory-marker reveal">
+                <div class="memory-dot">📍</div>
+                <div class="memory-content">
+                    <h3 class="memory-title">Our First Hello</h3>
+                    <p class="memory-description">
+                        The moment that started it all. A simple 'hello' that would change both our lives forever.
+                        I remember being nervous but excited, not knowing that this was the beginning of something
+                        magical.
+                    </p>
+                </div>
+            </div>
+
+            <div class="memory-marker reveal">
+                <div class="memory-dot">💬</div>
+                <div class="memory-content">
+                    <h3 class="memory-title">Late Night Conversations</h3>
+                    <p class="memory-description">
+                        Talking until 3 AM, not wanting the conversation to end. We discovered we had so much in common,
+                        shared the same dreams, and made each other laugh endlessly.
+                    </p>
+                </div>
+            </div>
+
+            <div class="memory-marker reveal">
+                <div class="memory-dot">🌙</div>
+                <div class="memory-content">
+                    <h3 class="memory-title">Stargazing Together</h3>
+                    <p class="memory-description">
+                        That night under the stars when we shared our deepest thoughts and dreams. The universe felt
+                        so vast, but with you beside me, I felt like I was exactly where I belonged.
+                    </p>
+                </div>
+            </div>
+
+            <div class="memory-marker reveal">
+                <div class="memory-dot">🎵</div>
+                <div class="memory-content">
+                    <h3 class="memory-title">Dancing In The Rain</h3>
+                    <p class="memory-description">
+                        We got caught in an unexpected downpour, but instead of running for shelter, we danced.
+                        It was spontaneous, silly, and absolutely perfect. That's when I knew - life with you
+                        would never be boring.
+                    </p>
+                </div>
+            </div>
+
+            <div class="memory-marker reveal">
+                <div class="memory-dot">☕</div>
+                <div class="memory-content">
+                    <h3 class="memory-title">Our Coffee Ritual</h3>
+                    <p class="memory-description">
+                        Finding our favorite coffee spot and making it our place. Every visit brought new conversations,
+                        shared laughter, and moments that I'll treasure forever.
+                    </p>
+                </div>
+            </div>
+
+            <div class="memory-marker reveal">
+                <div class="memory-dot">📸</div>
+                <div class="memory-content">
+                    <h3 class="memory-title">Silly Photo Sessions</h3>
+                    <p class="memory-description">
+                        Making goofy faces, trying different poses, and laughing at how ridiculous we looked.
+                        These photos might not be Instagram-worthy, but they capture pure, genuine happiness.
+                    </p>
+                </div>
+            </div>
+
+            <div class="memory-marker reveal">
+                <div class="memory-dot">🎁</div>
+                <div class="memory-content">
+                    <h3 class="memory-title">Thoughtful Surprises</h3>
+                    <p class="memory-description">
+                        The little surprises that showed how well we know each other. It's not about expensive gifts,
+                        but about the thought and love behind them. Each one made my heart melt.
+                    </p>
+                </div>
+            </div>
+
+            <div class="memory-marker reveal">
+                <div class="memory-dot">💖</div>
+                <div class="memory-content">
+                    <h3 class="memory-title">Today & Beyond</h3>
+                    <p class="memory-description">
+                        Every single day with you adds a new memory to our lane. I can't wait to fill thousands
+                        more markers on this road as we continue our journey together. Here's to forever and always.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; padding: 4rem 5%;">
+        <p class="script-text" style="font-size: 2rem; margin-bottom: 2rem; color: var(--soft-pink);">
+            "The best memories are the ones we make together" 💕
+        </p>
+        <a href="future.html" class="btn btn-primary">
+            <i class="fas fa-forward"></i> Look To Our Future
+        </a>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-heart heartbeat">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <p class="footer-text">Made with endless love for the most amazing person in the world</p>
+                <p class="footer-date">Valentine's Day 2026</p>
+                <div class="footer-social">
+                    <span class="script-text">Forever & Always ❤️</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

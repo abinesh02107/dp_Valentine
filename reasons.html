@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="All the reasons why I love you with all my heart">
+    <title>Why I Love You ❤️ | Forever Yours</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .reasons-header {
+            text-align: center;
+            padding: 8rem 5% 4rem;
+            background: radial-gradient(circle at center, rgba(255, 64, 129, 0.1) 0%, transparent 70%);
+        }
+
+        .reasons-header h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            background: var(--gradient-romantic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .reasons-intro {
+            max-width: 800px;
+            margin: 2rem auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .reasons-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .reason-card {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: var(--blur-glass);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 64, 129, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reason-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 64, 129, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .reason-card:hover::before {
+            left: 100%;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary-pink);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .reason-number {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 4rem;
+            font-weight: 700;
+            opacity: 0.1;
+            font-family: var(--font-heading);
+            background: var(--gradient-romantic);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .reason-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: var(--transition-normal);
+        }
+
+        .reason-card:hover .reason-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .reason-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .reason-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .infinite-love {
+            text-align: center;
+            padding: 4rem 5%;
+            background: linear-gradient(180deg, transparent 0%, rgba(156, 39, 176, 0.1) 100%);
+        }
+
+        .infinite-symbol {
+            font-size: 6rem;
+            color: var(--primary-pink);
+            margin-bottom: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px rgba(255, 64, 129, 0.5));
+        }
+
+        @media (max-width: 768px) {
+            .reasons-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader" id="loader">
+        <div class="loader-heart"></div>
+    </div>
+
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Forever Yours ❤️</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                 <li><a href="index.html">Home</a></li>
+                <li><a href="our-story.html">Our Story</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="love-letters.html">Love Letters</a></li>
+                <li><a href="reasons.html" class="active">Why I Love You</a></li>
+                <li><a href="moments.html">Special Moments</a></li>
+                <li><a href="playlist.html">Our Playlist</a></li>
+                <li><a href="quiz.html">Love Quiz</a></li>
+                <li><a href="memory-lane.html">Memory Lane</a></li>
+                <li><a href="future.html">Our Future</a></li>
+                <li><a href="valentine.html">Be My Valentine?</a></li>
+                <li><a href="message.html">Valentine's Message</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="reasons-header">
+        <h1 class="fade-in-up">Why I Love You</h1>
+        <p class="script-text" style="font-size: 2rem; color: var(--soft-pink); margin-top: 1rem;">
+            Let me count the ways... 💕
+        </p>
+        <p class="reasons-intro">
+            There are countless reasons why I fell in love with you, and more reasons appear every single day.
+            Here are just a few of the infinite ways you make my heart sing.
+        </p>
+    </section>
+
+    <div class="reasons-container">
+        <div class="reasons-grid">
+            <!-- Reason 1 -->
+            <div class="reason-card reveal">
+                <span class="reason-number">01</span>
+                <div class="reason-icon">😊</div>
+                <h3 class="reason-title">Your Beautiful Smile</h3>
+                <p class="reason-text">
+                    Your smile lights up my entire world. It's the first thing I think about in the morning
+                    and the last thing I see before I fall asleep. Your smile can turn my worst days into
+                    the best ones.
+                </p>
+            </div>
+
+            <!-- Reason 2 -->
+            <div class="reason-card reveal">
+                <span class="reason-number">02</span>
+                <div class="reason-icon">💖</div>
+                <h3 class="reason-title">Your Kindness</h3>
+                <p class="reason-text">
+                    The way you care for others amazes me every day. Your kindness and compassion
+                    inspire me to be a better person. You have the most beautiful heart I've ever known.
+                </p>
+            </div>
+
+            <!-- Reason 3 -->
+            <div class="reason-card reveal">
+                <span class="reason-number">03</span>
+                <div class="reason-icon">😂</div>
+                <h3 class="reason-title">Your Laugh</h3>
+                <p class="reason-text">
+                    Your laughter is my favorite sound in the entire universe. It's contagious, genuine,
+                    and fills every room with joy. I love making you laugh just to hear that beautiful sound.
+                </p>
+            </div>
+
+            <!-- Reason 4 -->
+            <div class="reason-card reveal">
+                <span class="reason-number">04</span>
+                <div class="reason-icon">🌟</div>
+                <h3 class="reason-title">Your Passion</h3>
+                <p class="reason-text">
+                    The way your eyes light up when you talk about the things you love is mesmerizing.
+                    Your passion for life and your dreams inspire me to chase my own.
+                </p>
+            </div>
+
+            <!-- Reason 5 -->
+            <div class="reason-card reveal">
+                <span class="reason-number">05</span>
+                <div class="reason-icon">🧠</div>
+                <h3 class="reason-title">Your Intelligence</h3>
+                <p class="reason-text">
+                    I love our deep conversations and the way you see the world. Your intelligence
+                    and unique perspective on life never cease to amaze me.
+                </p>
+            </div>
+
+            <!-- Reason 6 -->
+            <div class="reason-card reveal">
+                <span class="reason-number">06</span>
+                <div class="reason-icon">🫂</div>
+                <h3 class="reason-title">Your Hugs</h3>
+                <p class="reason-text">
+                    Your hugs feel like home. In your arms, I find peace, comfort, and a love that
+                    makes everything else fade away. It's my favorite place in the world.
+                </p>
+            </div>
+
+            <!-- Reason 7 -->
+            <div class="reason-card reveal">
+                <span class="reason-number">07</span>
+                <div class="reason-icon">💪</div>
+                <h3 class="reason-title">Your Strength</h3>
+                <p class="reason-text">
+                    You handle challenges with such grace and determination. Your strength, both inner
+                    and outer, inspires me to be stronger in my own life.
+                </p>
+            </div>
+
+            <!-- Reason 8 -->
+            <div class="reason-card reveal">
+                <span class="reason-number">08</span>
+                <div class="reason-icon">🎨</div>
+                <h3 class="reason-title">Your Creativity</h3>
+                <p class="reason-text">
+                    The way you express yourself and create beauty in this world is incredible.
+                    Your creativity adds color to my black and white world.
+                </p>
+            </div>
+
+            <!-- Reason 9 -->
+            <div class="reason-card reveal">
+                <span class="reason-number">09</span>
+                <div class="reason-icon">🤝</div>
+                <h3 class="reason-title">Your Support</h3>
+                <p class="reason-text">
+                    You believe in me even when I don't believe in myself. Your unwavering support
+                    and encouragement give me the courage to pursue my dreams.
+                </p>
+            </div>
+
+            <!-- Reason 10 -->
+            <div class="reason-card reveal">
+                <span class="reason-number">10</span>
+                <div class="reason-icon">✨</div>
+                <h3 class="reason-title">You're Simply You</h3>
+                <p class="reason-text">
+                    Every little quirk, every habit, every imperfection - they all make you perfectly you.
+                    And that's exactly who I fell in love with. You're irreplaceable.
+                </p>
+            </div>
+
+            <!-- Reason 11 -->
+            <div class="reason-card reveal">
+                <span class="reason-number">11</span>
+                <div class="reason-icon">🌙</div>
+                <h3 class="reason-title">Your Understanding</h3>
+                <p class="reason-text">
+                    You understand me in ways no one else does. You see through my walls and accept
+                    every part of me. With you, I can truly be myself.
+                </p>
+            </div>
+
+            <!-- Reason 12 -->
+            <div class="reason-card reveal">
+                <span class="reason-number">12</span>
+                <div class="reason-icon">🌈</div>
+                <h3 class="reason-title">You Make Life Beautiful</h3>
+                <p class="reason-text">
+                    Every moment with you is special. You turn ordinary days into adventures and
+                    make the simple things extraordinary. Life is just better with you in it.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section class="infinite-love">
+        <div class="infinite-symbol">∞</div>
+        <h2 class="text-gradient" style="font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.5rem;">
+            And Infinitely More...
+        </h2>
+        <p style="max-width: 700px; margin: 0 auto 2rem; font-size: 1.2rem; opacity: 0.9;">
+            These are just a few reasons, but my love for you grows every single day.
+            There will never be enough words to express how much you mean to me.
+        </p>
+        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem;">
+            <a href="love-letters.html" class="btn btn-primary">
+                <i class="fas fa-envelope-open-text"></i> Read Love Letters
+            </a>
+            <a href="message.html" class="btn btn-outline">
+                <i class="fas fa-heart"></i> Valentine's Message
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-heart heartbeat">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <p class="footer-text">Made with endless love for the most amazing person in the world</p>
+                <p class="footer-date">Valentine's Day 2026</p>
+                <div class="footer-social">
+                    <span class="script-text">Forever & Always ❤️</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
